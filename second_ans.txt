@@ -1,0 +1,19 @@
+# matplotlib for showing the graph
+import matplotlib.pyplot as plt
+
+# creating the data for the graph
+x = [1, 2, 3, 4, 5, 6]
+y = [7, 8, 9, 10, 11, 12]
+
+# reversing the list for better showing the scatter and plot
+y2 = list(reversed(y))  # not needed
+
+# creating the scatter and the plot
+plt.scatter(x, y, color='green', label='scatter data', s=10, marker="o")
+plt.plot(x, y2, color='blue')
+
+# showing the plot and scatter in one window
+plt.show()
+
+
+# You are welcome to run it but make sure to install the matplotlib library

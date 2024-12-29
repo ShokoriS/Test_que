@@ -1,0 +1,52 @@
+"""this code will generate random names, father name, email address and the difference between the tkinter and
+pyqt5 was taken from chatgpt for clarity in a png file. But you should go through the basics of the tkinter and the basic
+parts of how to create images, labels and more.
+
+
+
+
+import tkinter as tk
+from tkinter import ttk
+import random
+
+# Generate random names, father names, and email addresses
+def generate_random_data(num):
+    first_names = ["John", "Alice", "Robert", "Emily", "Michael", "Sophia"]
+    last_names = ["Smith", "Johnson", "Brown", "Williams", "Jones", "Garcia"]
+    data = []
+    for _ in range(num):
+        name = f"{random.choice(first_names)} {random.choice(last_names)}"
+        father_name = f"{random.choice(first_names)} {random.choice(last_names)}"
+        email = f"{name.replace(' ', '').lower()}@example.com"
+        data.append((name, father_name, email))
+    return data
+
+# Create the Tkinter application
+class AppDemo:
+    def __init__(self, root):
+        root.title("Random Data in Treeview")
+        root.geometry("600x400")
+
+        # Treeview setup
+        self.tree = ttk.Treeview(root, columns=("Name", "Father Name", "Email"), show="headings", height=20)
+        self.tree.heading("Name", text="Name")
+        self.tree.heading("Father Name", text="Father Name")
+        self.tree.heading("Email", text="Email Address")
+        self.tree.column("Name", width=180)
+        self.tree.column("Father Name", width=180)
+        self.tree.column("Email", width=220)
+
+        # Populate the treeview with random data
+        data = generate_random_data(50)
+        for name, father_name, email in data:
+            self.tree.insert("", tk.END, values=(name, father_name, email))
+
+        # Pack the treeview
+        self.tree.pack(fill=tk.BOTH, expand=True)
+
+
+# Run the application
+if __name__ == "__main__":
+    root = tk.Tk()
+    app = AppDemo(root)
+    root.mainloop()

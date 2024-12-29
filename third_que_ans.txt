@@ -1,0 +1,41 @@
+# third que-->
+
+"""User-Defined Exceptions
+
+    These are custom exceptions created by programmers to handle specific error scenarios in their programs.
+    They are not inherently raised by Python but are explicitly raised by the programmer using the raise statement.
+    Handling these exceptions is the programmer's responsibility, allowing for customized error management.
+
+Example:
+
+"""
+
+
+class MyCustomError(Exception):
+    pass
+
+try:
+    raise MyCustomError("This is a user-defined exception")
+except MyCustomError as e:
+    print(e)
+
+else:
+    print("good")
+
+finally:
+    print("nothing happened")
+
+
+"""Built-in Exceptions
+
+    These are predefined exceptions provided by Python to handle common errors such as syntax or semantic mistakes.
+    These exceptions are raised automatically by Python when an error occurs during program execution, like a SyntaxError, TypeError, or IndexError.
+    Handling these exceptions involves using try-except blocks to ensure the program doesn't crash unexpectedly.
+
+Example:
+
+"""
+try:
+    x = 10 / 0  # Division by zero raises a built-in exception
+except ZeroDivisionError as e:
+    print(f"Caught a built-in exception: {e}")
