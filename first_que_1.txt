@@ -1,0 +1,20 @@
+import pymysql as pmx
+
+# establishing connection
+connection = pmx.connect(host="localhost", user="Shokori", password="max(1,2,3)is3", database="University")
+# creating cursor
+cursor = connection.cursor()
+
+# Query to execute
+command = "insert into Employeer(Name, salary) values('Ali', '1200k');"
+command2 = "insert into Employeer(Name, salary) values('Ahmad', '23k');"
+command3 = "insert into Employeer(Name, salary) values('Shirzad', '23k');"
+
+# executing the command
+cursor.execute(command2)
+cursor.execute(command3)
+
+#commiting afterwards
+connection.commit()
+
+connection.close()

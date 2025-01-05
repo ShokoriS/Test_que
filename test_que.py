@@ -1,19 +1,13 @@
-# Function definitions
-def add(*args):
-    """Returns the sum of all input arguments."""
-    return sum(args)
+import time
+from itertools import product
+sentences = [("can I, can I, can I",0), ("call you", 0.5), ("mine", 0.5)]
 
 
-def multiply(*args):
-    """Returns the product of all input arguments."""
-    result = 1
-    for num in args:
-        result *= num
-    return result
+def gen(sens):
+    for sen, delay in sens:
+        time.sleep(delay)
+        yield sen
 
+for i in gen(sentences):
+    print(i)
 
-# Sample inputs
-print(add(1, 3, 4, 5))          # Output: 13
-print(add(1, 3))                # Output: 4
-print(multiply(1, 2, 3, 4, 5))  # Output: 120
-print(multiply(2, 3, 4))        # Output: 24
