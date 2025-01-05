@@ -5,6 +5,12 @@ connection = pmx.connect(host="localhost", user="Shokori", password="max(1,2,3)i
 # creating cursor
 cursor = connection.cursor()
 
+""" the teacher asked to create a table called student with an id that is primary key and auto_increment
+and a name column and salary.
+"""
+# creating a table called student with id, name and salary
+student_table_command = "create table student(id int primary key auto_increment, name varchar(255), salary varchar(255)")
+
 # Query to execute
 command = "insert into Employeer(Name, salary) values('Ali', '1200k');"
 command2 = "insert into Employeer(Name, salary) values('Ahmad', '23k');"
